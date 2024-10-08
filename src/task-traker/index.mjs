@@ -18,7 +18,7 @@ class TaskTraker {
 
 	// CRUD Methods
 	add(value) {
-		let currentList = this.tasks;
+		const currentList = this.tasks;
 		const newTask = {
 			id: this.createID(),
 			text: value,
@@ -30,13 +30,13 @@ class TaskTraker {
 	}
 
 	list() {
-		this.tasks.forEach((task) => {
+		for (const task of this.tasks) {
 			console.log(task);
-		});
+		}
 	}
 
 	update(id, value) {
-		let currentList = this.tasks;
+		const currentList = this.tasks;
 		const idTask = currentList.findIndex((task) => task.id === id);
 
 		currentList[idTask].text = value;
