@@ -3,6 +3,10 @@ class TaskTraker {
 		this.tasks = [];
 	}
 
+	getTasks() {
+		return this.tasks;
+	}
+
 	createID() {
 		const currentList = this.tasks;
 		let newID;
@@ -50,24 +54,4 @@ class TaskTraker {
 	}
 }
 
-const app = new TaskTraker();
-
-// Test One: Create first task
-app.add('My First Task');
-// Result : [{id: 0, value: 'My First Task', status: 'Pending'}]
-app.list();
-
-// Test One: Create other task
-app.add('Two Task');
-// Result : [{id: 0, value: 'My First Task', status: 'Pending'}, {id: 1, value: 'Two Task', status: 'Pending'}]
-app.list();
-
-// Test One: Update a task
-app.update(1, 'Update my task');
-// Result : [{id: 0, value: 'My First Task', status: 'Pending'}, {id: 1, value: 'Update my task', status: 'Pending'}]
-app.list();
-
-// Test One: Update a task
-app.delete(0);
-// Result : [{id: 1, value: 'Update my task', status: 'Pending'}]
-app.list();
+export { TaskTraker };
