@@ -54,13 +54,17 @@ class TaskTraker {
 	}
 
 	markInProgress(id) {
-		// const currentList = this.tasks;
-		// const indexTask = currentList.findIndex((task) => task.id === id);
-		return true;
+		const currentList = this.tasks;
+		const indexTask = currentList.findIndex((task) => task.id === id);
+
+		currentList[indexTask].status = 'in progress';
 	}
 
 	markDone(id) {
-		return true;
+		const currentList = this.tasks;
+		const indexTask = currentList.findIndex((task) => task.id === id);
+
+		currentList[indexTask].status = 'done';
 	}
 }
 
