@@ -41,9 +41,9 @@ class TaskTraker {
 
 	update(id, value) {
 		const currentList = this.tasks;
-		const idTask = currentList.findIndex((task) => task.id === id);
+		const indexTask = currentList.findIndex((task) => task.id === id);
 
-		currentList[idTask].text = value;
+		currentList[indexTask].text = value;
 
 		this.tasks = currentList;
 	}
@@ -51,6 +51,16 @@ class TaskTraker {
 	delete(id) {
 		const newList = this.tasks.filter((task) => task.id !== id);
 		this.tasks = newList;
+	}
+
+	markInProgress(id) {
+		// const currentList = this.tasks;
+		// const indexTask = currentList.findIndex((task) => task.id === id);
+		return true;
+	}
+
+	markDone(id) {
+		return true;
 	}
 }
 
