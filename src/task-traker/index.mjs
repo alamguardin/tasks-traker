@@ -8,7 +8,7 @@ class TaskTraker {
 	}
 
 	createID() {
-		const currentList = this.tasks;
+		const currentList = [...this.tasks];
 		let newID;
 
 		if (currentList.length) {
@@ -22,7 +22,7 @@ class TaskTraker {
 
 	// CRUD Methods
 	add(value) {
-		const currentList = this.tasks;
+		const currentList = [...this.tasks];
 		const newTask = {
 			id: this.createID(),
 			text: value,
@@ -40,7 +40,7 @@ class TaskTraker {
 	}
 
 	update(id, value) {
-		const currentList = this.tasks;
+		const currentList = [...this.tasks];
 		const indexTask = currentList.findIndex((task) => task.id === id);
 
 		currentList[indexTask].text = value;
@@ -54,14 +54,14 @@ class TaskTraker {
 	}
 
 	markInProgress(id) {
-		const currentList = this.tasks;
+		const currentList = [...this.tasks];
 		const indexTask = currentList.findIndex((task) => task.id === id);
 
 		currentList[indexTask].status = 'in progress';
 	}
 
 	markDone(id) {
-		const currentList = this.tasks;
+		const currentList = [...this.tasks];
 		const indexTask = currentList.findIndex((task) => task.id === id);
 
 		currentList[indexTask].status = 'done';
