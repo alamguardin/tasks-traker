@@ -82,3 +82,32 @@ it('Mark task as in progress and done', ({ app }) => {
 	expect(tasksList[1].status).toBe('done');
 	expect(tasksList[0].status).toBe('pending');
 });
+
+it('Show filtered list correctly', ({ app }) => {
+	const list = [
+		'go shopping',
+		'do exercise',
+		'study session',
+		'build new app',
+		'meditate',
+		'clean the house',
+		'play piano',
+	];
+
+	for (const task of list) {
+		app.add(task);
+	}
+
+	app.markDone(0);
+	app.markDone(5);
+	app.markDone(2);
+	app.markInProgress(1);
+	app.markInProgress(4);
+
+	app.filterList('pending');
+	console.log('--------------');
+	app.filterList('in progress');
+	console.log('--------------');
+	app.filterList('done');
+	console.log('--------------');
+});

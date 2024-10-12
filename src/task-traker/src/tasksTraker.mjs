@@ -39,6 +39,14 @@ class TaskTraker {
 		}
 	}
 
+	filterList(status) {
+		for (const task of this.tasks) {
+			if (task.status === status) {
+				console.log(task);
+			}
+		}
+	}
+
 	update(id, value) {
 		const currentList = [...this.tasks];
 		const indexTask = currentList.findIndex((task) => task.id === id);
