@@ -1,5 +1,5 @@
 import { expect, beforeEach, it } from 'vitest';
-import { TaskTraker } from './index.mjs';
+import { TaskTraker } from '../src/tasksTraker.mjs';
 
 beforeEach(async (context) => {
 	context.app = new TaskTraker();
