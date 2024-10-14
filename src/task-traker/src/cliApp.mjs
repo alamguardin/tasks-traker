@@ -4,3 +4,5 @@ class CliApp {
 		this.flags = [...FLAGS];
 	}
 }
+
+export { CliApp };
