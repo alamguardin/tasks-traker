@@ -5,7 +5,7 @@ beforeEach(async (context) => {
 	context.cli = new CliApp();
 });
 
-it('Should add commands correctly', () => {
+it('Should add commands correctly', ({ cli }) => {
 	function gretting(name) {
 		return `Hello ${name}`;
 	}
