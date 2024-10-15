@@ -5,22 +5,74 @@ beforeEach(async (context) => {
 	context.cli = new CliApp();
 });
 
-it('Should add commands correctly', ({ cli }) => {
-	function gretting(name) {
-		return `Hello ${name}`;
-	}
+it('command: add - should add task correctly', ({ cli }) => {
+	const args = ['add', 'This is my task'];
+	cli.parser(args);
 
-	cli.create({
-		name: 'add',
-		flags: [],
-		hasValue: true,
-		type: 'string',
-		invoke: gretting,
-	});
+	const tasks = cli.getTasks();
 
-	const commandsList = cli.getCommands();
+	console.log(tasks);
+	expect(tasks.length).toBe(1);
+	expect(tasks[0].text).toBe(args[1]);
+});
 
-	expect(commandsList.length).toBe(1);
-	expect(commandsList[0].invoke('Alam')).toBeTypeOf('string');
-	expect(commandsList[0].invoke('Alam')).toBe('Hello Alam');
+it('commad: update - should update task value correctly', ({ cli }) => {
+	// add task to be updated later
+	const argsOne = ['add', 'This is my task'];
+	cli.parser(argsOne);
+	// update previously added task
+	const argsTwo = ['update', '0', 'Update my task'];
+	cli.parser(argsTwo);
+
+	const tasks = cli.getTasks();
+
+	console.log(tasks);
+	expect(tasks[0].id).toBe(0);
+	expect(tasks[0].text).toBe(argsTwo[2]);
+});
+
+it('command: delete - should delete a task correctly', ({ cli }) => {
+	// add task to be updated later
+	const argsOne = ['add', 'This is my task'];
+	cli.parser(argsOne);
+	// update previously added task
+	const argsTwo = ['delete', '0'];
+	cli.parser(argsTwo);
+
+	const tasks = cli.getTasks();
+
+	console.log(tasks);
+	expect(tasks.length).toBe(0);
+});
+
+it('command: mark-in-progress - the status should change to in progress', ({
+	cli,
+}) => {
+	// add task to be updated later
+	const argsOne = ['add', 'This is my task'];
+	cli.parser(argsOne);
+	// update previously added task
+	const argsTwo = ['mark-in-progress', '0'];
+	cli.parser(argsTwo);
+
+	const tasks = cli.getTasks();
+
+	console.log(tasks);
+	expect(tasks[0].status).toBe('in progress');
+});
+
+it('command: mark-in-progress - the status should change to done', ({
+	cli,
+}) => {
+	// add task to be updated later
+	const argsOne = ['add', 'This is my task'];
+	cli.parser(argsOne);
+	// update previously added task
+	const argsTwo = ['mark-done', '0'];
+	cli.parser(argsTwo);
+
+	const tasks = cli.getTasks();
+
+	console.log(tasks);
+	expect(tasks[0].status).toBe('done');
 });
