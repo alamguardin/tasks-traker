@@ -73,8 +73,8 @@ it('Mark task as in progress and done', ({ app }) => {
 		app.add(task);
 	}
 
-	app.markInProgress(2);
-	app.markDone(1);
+	app.setStatus(2, 'in progress');
+	app.setStatus(1, 'done');
 
 	const tasksList = app.getTasks();
 
@@ -98,11 +98,11 @@ it('Show filtered list correctly', ({ app }) => {
 		app.add(task);
 	}
 
-	app.markDone(0);
-	app.markDone(5);
-	app.markDone(2);
-	app.markInProgress(1);
-	app.markInProgress(4);
+	app.setStatus(0, 'done');
+	app.setStatus(5, 'done');
+	app.setStatus(2, 'done');
+	app.setStatus(1, 'in progress');
+	app.setStatus(4, 'in progress');
 
 	app.filterList('pending');
 	console.log('--------------');

@@ -23,6 +23,7 @@ class CliApp {
 		if (this.commands.some((command) => command === args[0])) {
 			if (args[0] === 'add' && args[1] !== undefined) {
 				this.tasksList.add(args[1]);
+				console.log('¡Tarea agregada correctamente!');
 			}
 
 			if (args[0] === 'list') {
@@ -43,6 +44,7 @@ class CliApp {
 
 				if (!Number.isNaN(idTask) && newValue) {
 					this.tasksList.update(idTask, newValue);
+					console.log('¡Tarea actualizada satisfactoriamente!');
 				}
 			}
 
@@ -51,6 +53,7 @@ class CliApp {
 
 				if (!Number.isNaN(idTask)) {
 					this.tasksList.delete(idTask);
+					console.log('¡Tarea eliminada con exito!');
 				}
 			}
 
@@ -58,7 +61,8 @@ class CliApp {
 				const idTask = Number(args[1]);
 
 				if (!Number.isNaN(idTask)) {
-					this.tasksList.markInProgress(idTask);
+					this.tasksList.setStatus(idTask, 'in progress');
+					console.log('!Tarea marcada en progreso con exito!');
 				}
 			}
 
@@ -66,7 +70,8 @@ class CliApp {
 				const idTask = Number(args[1]);
 
 				if (!Number.isNaN(idTask)) {
-					this.tasksList.markDone(idTask);
+					this.tasksList.setStatus(idTask, 'done');
+					console.log('!Tarea marcada como completada con exito!');
 				}
 			}
 		}
