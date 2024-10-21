@@ -9,24 +9,24 @@ La aplicacón de debe correr en la linea de comandos, aceptar acciones y entrada
 - Enlistar las tareas pendientes
 - Enlistar las tareas en progreso
 
-```javascript
+```sh
 // Añadir una tarea
-node index.js add "Buy groceries"
+node main.js add "Buy groceries"
 
 // Actualizado y elimando una tarea
-node index.js update 1 "Buy groceries and cook dinner"
-node index.js delete 1
+node main.js update 1 "Buy groceries and cook dinner"
+node main.js delete 1
 
 // Marcar tarea como en progreso o completada
-node index.js mark-in-progress 1
-node index.js mark-done 1
+node main.js mark-in-progress 1
+node main.js mark-done 1
 
 // Enlistando todas las tareas
-node index.js list
+node main.js list
 
 // Enlistando las tareas por estado
-node index.js list done
-node index.js list in-progress
+node main.js list done
+node main.js list in-progress
 ```
 
 Este proyecto esta inspirado en la listas de proyectos de [roadmap.sh](https://roadmap.sh/backend/projects).

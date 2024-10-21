@@ -9,7 +9,7 @@ todos estos proyectos puedes conseguirlos en [Roadmap.sh])(https://roadmap.sh/ba
 
 Proyecto | Estado
 --- | ---
-Task Traker | En progreso
+Task Traker | Completada
 Github User Activity | Pendiente
 Expense Tracker | Pendiente
 Unit Converter | Pendiente
