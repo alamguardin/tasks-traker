@@ -9,7 +9,7 @@ La aplicacón de debe correr en la linea de comandos, aceptar acciones y entrada
 - Enlistar las tareas pendientes
 - Enlistar las tareas en progreso
 
-```sh
+```
 // Añadir una tarea
 node main.js add "Buy groceries"
 
